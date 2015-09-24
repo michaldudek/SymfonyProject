@@ -44,9 +44,6 @@
             "Tests\\": "tests"
         }
     },
-    "config": {
-        "bin-dir": "bin"
-    },
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",

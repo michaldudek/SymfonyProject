@@ -1,3 +1,5 @@
+# default symfony ignores
+
 /web/bundles/
 /app/bootstrap.php.cache
 /app/cache/*
@@ -7,6 +9,17 @@
 !app/logs/.gitkeep
 /app/phpunit.xml
 /build/
+
+# app artifacts
+
+/logs/
+
+# vendor code
+
+/node_modules/
 /vendor/
-/bin/
-/composer.phar
+
+# other artifacts
+
+.cookbooks
+.vagrant

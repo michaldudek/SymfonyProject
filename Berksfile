@@ -1,0 +1,10 @@
+source 'https://api.berkshelf.com'
+
+cookbook 'apt', '~> 2.7.0'
+cookbook 'apache2', '~> 3.1.0'
+cookbook 'memcached', '~> 1.7.2'
+cookbook 'mongodb', '~> 0.16.2'
+cookbook 'mysql', '<6.0'
+cookbook 'nodejs', '~> 2.4.0'
+cookbook 'redisio', '~> 2.3.0'
+cookbook 'chef-hat', git: 'https://github.com/michaldudek/chef-hat.git', tag: '0.3.3'
