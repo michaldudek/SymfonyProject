@@ -1,9 +1,8 @@
 <?php
-
-namespace AppBundle;
+namespace MD\Flavour;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class AppBundle extends Bundle
+class FlavourBundle extends Bundle
 {
 }
