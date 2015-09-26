@@ -4,7 +4,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 use MyApp\MyApp;
 
-require_once __DIR__.'/../app/bootstrap.php.cache';
+require_once __DIR__.'/../.cache/bootstrap.php.cache';
 
 $kernel = new MyApp('prod', false);
 $kernel->loadClassCache();

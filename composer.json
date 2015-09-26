@@ -27,12 +27,10 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "MD\\Flavour\\Composer\\ScriptHandler::buildBootstrap",
             "MD\\Flavour\\Composer\\ScriptHandler::clearCache",
             "MD\\Flavour\\Composer\\ScriptHandler::installAssets"
         ],
         "post-update-cmd": [
-            "MD\\Flavour\\Composer\\ScriptHandler::buildBootstrap",
             "MD\\Flavour\\Composer\\ScriptHandler::clearCache",
             "MD\\Flavour\\Composer\\ScriptHandler::installAssets"
         ]

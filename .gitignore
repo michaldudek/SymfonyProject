@@ -1,21 +1,21 @@
-/config/parameters.yml
+build/
 
-# default symfony ignores
+# custom configuration
 
-/web/bundles/
-/app/bootstrap.php.cache
-/app/phpunit.xml
-/build/
+phpunit.xml
+config/parameters.yml
 
 # app artifacts
 
-/.cache/
-/logs/
+.cache/
+logs/
+resources/coverage
 
 # vendor code
 
-/node_modules/
-/vendor/
+node_modules/
+vendor/
+web/bundles/
 
 # other artifacts
 
