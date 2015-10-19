@@ -3,6 +3,27 @@ Symfony MD Flavour Edition
 
 Custom edition of Symfony2 project skeleton with highly opinionated structure changes.
 
+- [Using](#using)
+- [Philosophy](#philosophy)
+- [Changes](#changes)
+    - [Directory and File Structure](#directory-and-file-structure)
+    - [No Bundles, Not Even AppBundle](#no-bundles-not-even-appbundle)
+    - [Annotations are Forbidden!](#annotations-are-forbidden)
+    - [Controllers as Services](#controllers-as-service)
+        - [Controller Results](#controller-results)
+        - [One URL per Controller Rule](#one-url-per-controller-rule)
+    - [Bye Bye Doctrine, Hello Knit](#bye-bye-doctrine-hello-knit)
+    - [Let Frontend Manage Frontend - No Assetic](#let-frontend-manage-frontend---no-assetic)
+- [Frontend Additions](#frontend-additions)
+    - [Bower Components](#bower-components)
+    - [Building JS & CSS Assets](#building-js--css-assets)
+- [Development](#development)
+    - [Makefile](#makefile)
+    - [The BUILD Version](#the-build-version)
+    - [Vagrant](#vagrant)
+    - [Quality Assurance](#quality-assurance)
+- Deployments - TBD.
+
 # Using
 
 You can setup the project quickly via Composer:
@@ -52,7 +73,7 @@ Think `tests` directory which only stores testing code or `views` directory whic
 
 # Changes
 
-## Directory and file structure
+## Directory and File Structure
 
 The directory structure is quite different than that suggested by Symfony2 (or 3). The main difference is that there
 is no `./app` directory. The idea is that all application code (including configuration) should be located inside
