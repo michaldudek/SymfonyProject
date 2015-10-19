@@ -1,7 +1,7 @@
 Symfony MD Flavour Edition
 ==========================
 
-This is a custom edition of Symfony2 project skeleton with highly opinionated structure changes.
+Custom edition of Symfony2 project skeleton with highly opinionated structure changes.
 
 # Using
 
