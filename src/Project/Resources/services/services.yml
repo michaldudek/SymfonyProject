@@ -1,0 +1,10 @@
+imports:
+    - { resource: "configuration.yml" }
+
+parameters:
+
+services:
+
+    welcome.home_controller: 
+        class: Project\Welcome\Controller\Home
+

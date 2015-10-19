@@ -1,0 +1,13 @@
+parameters:
+
+services:
+
+    knit.store.mysql:
+        class: %knit.store.doctrine_dbal.class%
+        arguments:
+            - driver: pdo_mysql
+              user: %mysql.username%
+              password: %mysql.password%
+              host: %mysql.hostname%
+              dbname: %mysql.database%
+            - @knit.store.doctrine_dbal.criteria_parser

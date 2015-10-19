@@ -1,8 +1,0 @@
-services:
-    
-    md.controller.result_converter:
-        class: MD\Flavour\Controller\ResultConverter
-        arguments:
-            - @templating
-        tags:
-            - { name: kernel.event_listener, event: kernel.view, method: onControllerResult }

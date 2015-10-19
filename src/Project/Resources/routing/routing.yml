@@ -1,0 +1,4 @@
+welcome.home:
+    path: /
+    defaults:
+        _controller: welcome.home_controller:home

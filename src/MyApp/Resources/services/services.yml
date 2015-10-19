@@ -1,9 +1,0 @@
-parameters:
-
-services:
-
-    home.controller:
-        class: MyApp\Controller\Home
-
-    test.controller:
-        class: MyApp\Controller\Test

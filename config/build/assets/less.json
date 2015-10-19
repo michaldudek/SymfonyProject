@@ -1,0 +1,9 @@
+{
+    "lib": {
+        "files": "web/less/lib.less"
+    },
+    "app": {
+        "files": "web/less/page.less",
+        "watch": "web/less/**/*.less"
+    }
+}

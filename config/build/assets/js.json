@@ -1,0 +1,37 @@
+{
+    "lib": [
+        "web/components/lodash/lodash.js",
+        
+        "web/components/jquery/dist/jquery.js",
+        "web/components/angular/angular.js",
+        "web/components/angular-animate/angular-animate.js",
+        "web/components/angular-ui-router/release/angular-ui-router.js"
+
+        // Bootstrap - enable as needed
+        //"web/components/bootstrap/js/affix.js",
+        //"web/components/bootstrap/js/alert.js",
+        //"web/components/bootstrap/js/button.js",
+        //"web/components/bootstrap/js/carousel.js",
+        //"web/components/bootstrap/js/collapse.js",
+        //"web/components/bootstrap/js/dropdown.js",
+        //"web/components/bootstrap/js/modal.js",
+        //"web/components/bootstrap/js/popover.js",
+        //"web/components/bootstrap/js/scrollspy.js",
+        //"web/components/bootstrap/js/tab.js",
+        //"web/components/bootstrap/js/tooltip.js",
+        //"web/components/bootstrap/js/transition.js",
+
+        // Angular Strap - enable as needed
+        //"web/components/angular-strap/dist/modules/date-parser.js",
+        //"web/components/angular-strap/dist/modules/datepicker.js",
+        //"web/components/angular-strap/dist/modules/datepicker.tpl.js",
+        //"web/components/angular-strap/dist/modules/dimensions.js",
+        //"web/components/angular-strap/dist/modules/modal.js",
+        //"web/components/angular-strap/dist/modules/modal.tpl.js",
+        //"web/components/angular-strap/dist/modules/timepicker.js",
+        //"web/components/angular-strap/dist/modules/timepicker.tpl.js",
+        //"web/components/angular-strap/dist/modules/tooltip.js",
+        //"web/components/angular-strap/dist/modules/tooltip.tpl.js",
+    ],
+    "app": "web/js/**/*.js"
+}

@@ -3,5 +3,5 @@
 require_once __DIR__.'/.cache/bootstrap.php.cache';
 
 MD\Flavour\Bootstrap\Run::console(
-    MyApp\MyApp::class
+    Project\ProjectApp::class
 );

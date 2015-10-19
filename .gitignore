@@ -1,23 +1,23 @@
-build/
-
 # custom configuration
 
-phpunit.xml
-config/parameters.yml
+/phpunit.xml
+/config/parameters.yml
 
 # app artifacts
 
-.cache/
-logs/
-resources/coverage
+/.cache/
+/logs/
+/resources/coverage
+/web/assets
 
 # vendor code
 
-node_modules/
-vendor/
-web/bundles/
+/node_modules/
+/vendor/
+/web/bundles/
 
 # other artifacts
 
-.cookbooks
-.vagrant
+/.BUILD
+/.cookbooks
+/.vagrant

@@ -3,8 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% block stylesheets %}
+            <link rel="stylesheet" href="/assets/css/lib-{{ kernel.build }}.css">
+            <link rel="stylesheet" href="/assets/css/app-{{ kernel.build }}.css">
+        {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}

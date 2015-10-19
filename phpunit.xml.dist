@@ -10,7 +10,7 @@
     bootstrap                   = ".cache/bootstrap.php.cache"
 >
     <testsuites>
-        <testsuite name="MyApp">
+        <testsuite name="Project">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

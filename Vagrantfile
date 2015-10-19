@@ -1,6 +1,6 @@
-APP_NAME = "symfonyapp"
+APP_NAME = "symfonyapp" # set your application name - this will be used as `www.[APP_NAME].dev` domain
 
-Vagrant.require_version ">= 1.7.0", "< 2.0.0"
+Vagrant.require_version ">= 1.7.4", "< 2.0.0"
 
 # Make sure all dependencies are installed
 [
@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
 
     # configure network
     config.vm.hostname = APP_NAME + ".dev"
-    config.vm.network "private_network", ip: "192.168.222.10", network: "255.255.0.0"
+    config.vm.network "private_network", ip: "192.168.216.57", network: "255.255.0.0"
 
     # VirtualBox specific config - eg. composer memory problem
     config.vm.provider :virtualbox do |vb, override|
@@ -57,17 +57,10 @@ Vagrant.configure("2") do |config|
             "recipe[chef-hat::base]",
             "recipe[apache2]",
             "recipe[memcached]",
-            "recipe[mongodb::10gen_repo]",
-            "recipe[mongodb]",
             "recipe[mysql::server]",
-            "recipe[nodejs::nodejs_from_source]",
-            "recipe[redisio]",
-            "recipe[redisio::enable]",
             "recipe[chef-hat::php]",
             "recipe[chef-hat::php-apache2]",
             "recipe[chef-hat::php-composer]",
-            "recipe[chef-hat::php-mongo]",
-            "recipe[chef-hat::php-redis]",
             "recipe[chef-hat::php-xdebug]",
             "recipe[chef-hat::vhosts]"
         ]
@@ -82,15 +75,6 @@ Vagrant.configure("2") do |config|
                 "server_root_password" => "vagrant",
                 "server_repl_password" => "vagrant",
                 "server_debian_password" => "vagrant"
-            },
-            "nodejs" => {
-                "version" => "4.1.0",
-                "source" => {
-                    "checksum" => "453005f64ee529f7dcf1237eb27ee2fa2415c49f5c9e7463e8b71fba61c5b408"
-                },
-                "npm_packages" => [
-                    {"name" => "gulp"}
-                ]
             },
             "php" => {
                 "config" => {

@@ -1,7 +1,0 @@
-home:
-    path: /
-    defaults: { _controller: home.controller:home }
-
-test:
-    path: /test
-    defaults: { _controller: test.controller:test }

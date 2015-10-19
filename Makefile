@@ -1,22 +1,16 @@
-# Makefile
-# 
-# Common Makefile for web projects.
+# Makefile for Project
 # 
 # @author		Michał Pałys-Dudek <michal@michaldudek.pl>
-# @link			TBD
-# @version		0.1.1
-# @date			24.09.2015
 # ---------------------------------------------------------------------------
-# 
-# MD Symfony Project.
-
-.PHONY: help all install install_dev clear assets warmup run prepublish postpublish css js watch test lint qa report docs noop composer composer_dev workers workers_start assets assets_install cache cache_file cache_app knit_indexes phpunit phpcs phpcs_test phpcs_fix phpcs_test_fix phpmd jslint npm_dev
 
 # Variables
 # ---------------------------------------------------------------------------
 
 # Current path.
-CWD=`pwd`
+CWD=$(shell pwd)
+
+# Current build version read from ENV, .BUILD file or 'dev' value for default
+BUILD_VERSION?=$(shell cat .BUILD 2> /dev/null || echo 'dev')
 
 # Previous release path.
 PREVIOUS_PATH?=$(CWD)
@@ -68,22 +62,22 @@ all: help
 # ---------------------------------------------------------------------------
 
 # Installs all dependencies for production.
-install: composer build
+install: build_version composer npm_dev build
 
 # Installs all dependencies (including dev dependencies)
-install_dev: composer_dev npm_dev build
+install_dev: build_version composer_dev npm_dev build
 
 # Updates all dependencies (including dev dependencies)
 update: composer_update npm_update build
 
 # Builds the application
-build: bootstrap_php assets_install
+build: bootstrap clear assets
 
-# Clears any build artifacts, caches, installed packages, etc.
-clear: cache
+# Clears any build artifacts, caches, etc.
+clear: cache_clear
 
 # Warms up the application.
-warmup: noop
+warmup: cache
 
 # Runs / restarts the application.
 run: vagrant
@@ -105,15 +99,15 @@ postpublish: warmup
 
 # Build CSS.
 css:
-	@gulp less
+	gulp less
 
 # Build JavaScript.
 js:
-	@gulp js
+	gulp js
 
 # Watch files for changes and trigger appropriate tasks on changes.
 watch:
-	@gulp watch
+	gulp watch
 
 # Quality Assurance
 # ---------------------------------------------------------------------------
@@ -146,6 +140,9 @@ noop:
 # App specific commands
 # ---------------------------------------------------------------------------
 
+build_version:
+	echo $(BUILD_VERSION) > .BUILD
+
 # install Composer dependencies for production
 composer:
 	composer install --no-interaction --no-dev --prefer-dist --optimize-autoloader
@@ -158,7 +155,9 @@ composer_dev:
 composer_update:
 	composer update
 
-bootstrap_php:
+bootstrap:
+	mkdir "$(CWD)/.cache"
+	chmod -R 0775 "$(CWD)/.cache"
 	php vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/bin/build_bootstrap.php "$(CWD)/.cache" "$(CWD)/src"
 
 # install NPM dependencies for development
@@ -169,24 +168,26 @@ npm_dev:
 npm_update:
 	npm update
 
+# builds assets
+assets: assets_install css js
+
 # installs application assets
 assets_install:
-	php console assets:install --no-debug
+	php console assets:install --symlink
 
-# clears known file cache
-cache_file:
-	rm -rf .cache
-
-# clears app cache
-cache_app:
+# Clears all caches
+cache_clear: 
 	php console cache:clear --env=prod
+	rm -rf .cache/dev
+	rm -rf .cache/test
+	rm -rf .cache/prod
 
-# clears all caches
-cache: cache_app cache_file
+cache:
+	php console cache:warmup --env=prod
 
 # check for security updates
 security:
-	php app/console security:check
+	php console security:check
 
 # run the PHPUnit tests
 phpunit:

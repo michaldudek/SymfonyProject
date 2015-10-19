@@ -1,0 +1,32 @@
+types:
+    - test
+    - deploy
+
+test:
+    type: test
+    script:
+        - cp config/parameters.yml.dist config/parameters.yml
+        - make install_dev
+        - make qa
+
+deploy_dev:
+    type: deploy
+    script:
+        # make sure ssh agent is running for key forwarding
+        - eval "$(ssh-agent)"
+        - ssh-add
+        # deploy using capistrano
+        - cap dev deploy
+    only:
+        - develop
+
+deploy_production:
+    type: deploy
+    script:
+        # make sure ssh agent is running for key forwarding
+        - eval "$(ssh-agent)"
+        - ssh-add
+        # deploy using capistrano
+        - cap prod deploy
+    only:
+        - master
